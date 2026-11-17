@@ -1,0 +1,24 @@
+{
+  "name": "melo-vent-server",
+  "version": "1.0.0",
+  "description": "Dedicated vent room server for Melo",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "build:css": "tailwindcss -i ./public/styles.css -o ./public/dist/output.css --watch",
+    "build:css:prod": "tailwindcss -i ./public/styles.css -o ./public/dist/output.css --minify",
+    "dev": "concurrently \"npm run start\" \"npm run build:css\""
+  },
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.0.0",
+    "ws": "^8.16.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.24",
+    "concurrently": "^9.2.1",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.2.1"
+  }
+}

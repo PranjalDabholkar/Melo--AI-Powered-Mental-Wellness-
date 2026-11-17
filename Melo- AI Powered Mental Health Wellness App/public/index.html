@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melo | Therapist-Backed Mental Wellness</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="../src/config.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="icons/favicon.ico">
+    <style>
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -5px rgba(139, 92, 246, 0.3);
+        }
+        .glow {
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fadeInUp {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-[#0d1117] text-gray-100 min-h-screen">
+    <header class="sticky top-0 z-50 p-4 bg-[#0d1117]/80 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="inline-flex h-9 w-9 rounded-2xl bg-gradient-to-tr from-purple-500 to-sky-400 shadow-lg glow"></span>
+                <h1 class="text-2xl font-extrabold text-[#e5deff] tracking-tight">Melo <span class="text-purple-400">🧠</span></h1>
+            </div>
+            <nav class="hidden md:flex space-x-6 items-center text-sm font-medium">
+                <button class="text-purple-400 font-semibold hover:text-purple-300 transition" onclick="document.getElementById('feature-grid').scrollIntoView({ behavior: 'smooth' });">
+                    Features
+                </button>
+                <span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/30 text-[11px] uppercase tracking-wide">
+                    <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                    Therapist-backed beta
+                </span>
+                <a id="nav-auth-link" href="melo.html" class="px-4 py-2 bg-purple-600 rounded-xl hover:bg-purple-700 transition shadow-lg glow font-semibold text-xs">
+                    Get Started
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-16 relative z-10 space-y-24">
+        <!-- Hero Section -->
+        <section class="grid grid-cols-1 md:grid-cols-[1.2fr,1fr] gap-12 items-center">
+            <div class="space-y-8 animate-fadeInUp">
+                <div class="inline-flex items-center gap-2 rounded-full border border-purple-500/30 bg-purple-500/10 px-3 py-1 text-xs text-purple-200">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    <span>AI companion + real-world mental health tools</span>
+                </div>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight">
+                    A calmer mind,
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-sky-400 to-emerald-300">
+                        one small check-in
+                    </span>
+                    at a time.
+                </h1>
+                <p class="text-base sm:text-lg text-gray-400 leading-relaxed max-w-xl">
+                    Melo gives Gen Z a private, always-on space to talk, track, and process life —
+                    with an AI guide, smart journaling, real insights, grounding tools, and anonymous vent rooms.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-2xl transition-all duration-300 shadow-xl glow flex items-center justify-center gap-2 text-sm sm:text-base" onclick="document.getElementById('feature-grid').scrollIntoView({ behavior: 'smooth' });">
+                        <span>Explore Melo features</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                    <a id="hero-auth-link" href="melo.html" class="px-8 py-4 bg-gray-900/70 hover:bg-gray-800 text-gray-200 font-semibold rounded-2xl border border-gray-700 transition-all duration-300 flex items-center justify-center gap-2 text-sm sm:text-base">
+                        <i id="hero-auth-icon" data-lucide="log-in" class="w-5 h-5 text-purple-300"></i>
+                        <span id="hero-auth-text">Sign in</span>
+                    </a>
+                </div>
+                <div class="flex flex-wrap items-center gap-4 text-xs text-gray-500">
+                    <div class="flex -space-x-2">
+                        <span class="h-7 w-7 rounded-full bg-purple-500/40 border border-purple-300/40"></span>
+                        <span class="h-7 w-7 rounded-full bg-sky-500/40 border border-sky-300/40"></span>
+                        <span class="h-7 w-7 rounded-full bg-emerald-500/40 border border-emerald-300/40"></span>
+                    </div>
+                    <span>Built with input from therapists &amp; students</span>
+                    <span class="hidden sm:inline text-gray-700">•</span>
+                    <span>Anonymous by default. Your data, your control.</span>
+                </div>
+            </div>
+
+            <!-- Hero Preview Card (no React, pure HTML) -->
+            <div class="relative">
+                <div class="absolute -inset-10 bg-gradient-to-tr from-purple-500/20 via-sky-500/10 to-transparent blur-3xl opacity-70 pointer-events-none"></div>
+                <div class="relative mx-auto max-w-sm rounded-[32px] border border-gray-800 bg-gradient-to-b from-slate-900/90 via-slate-950 to-black shadow-[0_24px_80px_rgba(0,0,0,0.9)] p-4 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-3">
+                            <div class="h-9 w-9 rounded-2xl bg-gradient-to-tr from-purple-500 to-sky-400 shadow-lg"></div>
+                            <div>
+                                <p class="text-sm font-semibold text-white">Auri</p>
+                                <p class="text-[11px] text-gray-400">Your mental wellness companion</p>
+                            </div>
+                        </div>
+                        <span class="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-1 text-[10px] text-emerald-300 border border-emerald-400/30">
+                            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
+                            Online
+                        </span>
+                    </div>
+                    <div class="mt-2 space-y-3">
+                        <div class="rounded-3xl bg-gradient-to-b from-slate-900/80 to-black/80 px-4 py-3 border border-gray-800/80">
+                            <p class="text-[11px] font-semibold text-purple-300 mb-1">Auri</p>
+                            <p id="demo-auri-text" class="text-sm text-gray-100 leading-relaxed">
+                                Hey! I'm Auri, your mental wellness companion. How are you feeling today? 😊
+                            </p>
+                            <p class="mt-2 text-[10px] text-gray-500">07:26 AM</p>
+                        </div>
+                        <div class="rounded-3xl bg-gradient-to-b from-slate-900/60 to-black/80 px-4 py-3 border border-gray-800/70 opacity-70">
+                            <p class="text-[11px] font-semibold text-blue-200 mb-1">You</p>
+                            <p id="demo-user-text" class="text-sm text-gray-100 leading-relaxed">
+                                Kinda overwhelmed, but trying my best.
+                            </p>
+                            <p class="mt-2 text-[10px] text-gray-500">07:27 AM</p>
+                        </div>
+                    </div>
+                    <div class="pt-2">
+                        <div class="flex items-end gap-2 rounded-2xl bg-slate-900/80 border border-gray-800/80 px-3 py-2">
+                            <span class="flex-1 text-[11px] text-gray-500">Message Auri…</span>
+                            <button class="h-9 w-9 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-500 flex items-center justify-center shadow-lg">
+                                <i data-lucide="send" class="w-4 h-4 text-white"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature grid, inspired by component libraries -->
+        <section id="feature-grid" class="space-y-10">
+            <div class="flex items-center justify-between gap-4">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">Four pillars, one calmer nervous system.</h2>
+                    <p class="text-sm sm:text-base text-gray-400 max-w-xl">
+                        Borrowing the best patterns from modern UI libraries — simplified into a single experience that feels
+                        like a premium app, not a worksheet.
+                    </p>
+                </div>
+                <div class="hidden sm:flex gap-2 text-[11px] text-gray-400">
+                    <span class="px-2 py-1 rounded-full border border-gray-700 bg-gray-900/60">Chat</span>
+                    <span class="px-2 py-1 rounded-full border border-gray-700 bg-gray-900/60">Journal</span>
+                    <span class="px-2 py-1 rounded-full border border-gray-700 bg-gray-900/60">Insights</span>
+                    <span class="px-2 py-1 rounded-full border border-gray-700 bg-gray-900/60">Toolkit</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <article class="bg-gray-900/70 border border-purple-500/20 rounded-3xl p-6 card-hover">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="p-2 rounded-xl bg-purple-500/20 text-purple-300">
+                            <i data-lucide="bot" class="w-5 h-5"></i>
+                        </span>
+                        <h3 class="text-lg font-semibold text-white">Auri chat that feels human, not robotic.</h3>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-4">
+                        Friendly, boundaries-respecting conversations tuned for Gen Z language, checking in on both your
+                        thoughts and your nervous system.
+                    </p>
+                    <ul class="text-xs text-gray-400 space-y-1">
+                        <li>• Guided prompts for tough days</li>
+                        <li>• Grounded, non-clinical language</li>
+                        <li>• Nudges to journal, breathe, or reach out</li>
+                    </ul>
+                </article>
+
+                <article class="bg-gray-900/70 border border-sky-500/20 rounded-3xl p-6 card-hover">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="p-2 rounded-xl bg-sky-500/20 text-sky-300">
+                            <i data-lucide="book-open-text" class="w-5 h-5"></i>
+                        </span>
+                        <h3 class="text-lg font-semibold text-white">Smart daily journal, zero-pressure.</h3>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-4">
+                        Emoji mood check-ins, voice logs, and quick prompts help you build a record of how you’re really doing
+                        without forcing long essays.
+                    </p>
+                    <ul class="text-xs text-gray-400 space-y-1">
+                        <li>• 30-second check-ins designed for busy schedules</li>
+                        <li>• Voice and MP3 capture for stream-of-consciousness dumps</li>
+                        <li>• Exportable entries for therapy or personal archives</li>
+                    </ul>
+                </article>
+
+                <article class="bg-gray-900/70 border border-emerald-500/20 rounded-3xl p-6 card-hover">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="p-2 rounded-xl bg-emerald-500/20 text-emerald-300">
+                            <i data-lucide="line-chart" class="w-5 h-5"></i>
+                        </span>
+                        <h3 class="text-lg font-semibold text-white">Mood insights you can actually use.</h3>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-4">
+                        Clean visual graphs track trends in mood, energy, and journaling frequency — no data science degree
+                        required.
+                    </p>
+                    <ul class="text-xs text-gray-400 space-y-1">
+                        <li>• 7‑day and long-term mood trends</li>
+                        <li>• Exportable SVG/PNG graphs for reports</li>
+                        <li>• Quick-glance stats: streaks, averages, patterns</li>
+                    </ul>
+                </article>
+
+                <article class="bg-gray-900/70 border border-amber-500/20 rounded-3xl p-6 card-hover">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="p-2 rounded-xl bg-amber-500/20 text-amber-300">
+                            <i data-lucide="zap" class="w-5 h-5"></i>
+                        </span>
+                    <h3 class="text-lg font-semibold text-white">Grounding tools &amp; anonymous vent rooms.</h3>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-4">
+                        When things spike, Melo gives you immediate, therapist-designed tools — plus a safe, anonymous space
+                        to vent with other humans.
+                    </p>
+                    <ul class="text-xs text-gray-400 space-y-1">
+                        <li>• 4‑4‑6 breathing, grounding, and daily quests</li>
+                        <li>• Anonymous Vent Room with room limits for safety</li>
+                        <li>• Config-driven emergency contact &amp; hotline section</li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <!-- Simple "how it works" strip -->
+        <section class="space-y-6">
+            <h2 class="text-xl font-semibold text-white">How Melo fits into your week</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+                <div class="bg-gray-900/70 border border-gray-800 rounded-2xl p-4 flex flex-col gap-2">
+                    <span class="text-xs text-gray-500">Step 01</span>
+                    <p class="font-semibold text-gray-100">Check in with Auri</p>
+                    <p class="text-gray-400 text-xs">Start or end your day with a quick chat about how you’re feeling.</p>
+                </div>
+                <div class="bg-gray-900/70 border border-gray-800 rounded-2xl p-4 flex flex-col gap-2">
+                    <span class="text-xs text-gray-500">Step 02</span>
+                    <p class="font-semibold text-gray-100">Journal &amp; breathe</p>
+                    <p class="text-gray-400 text-xs">Log your mood, run a breathing exercise, or complete a daily quest.</p>
+                </div>
+                <div class="bg-gray-900/70 border border-gray-800 rounded-2xl p-4 flex flex-col gap-2">
+                    <span class="text-xs text-gray-500">Step 03</span>
+                    <p class="font-semibold text-gray-100">Review your patterns</p>
+                    <p class="text-gray-400 text-xs">Use the Insights tab to notice trends and bring them into therapy or life decisions.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live-feeling demo stats -->
+        <section class="space-y-6">
+            <h2 class="text-xl font-semibold text-white">What a week with Melo can look like</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
+                <div class="bg-gray-900/70 border border-purple-500/40 rounded-2xl p-4 flex flex-col gap-1">
+                    <span class="text-[11px] text-gray-400">Average daily check-ins</span>
+                    <span class="text-2xl font-bold text-purple-300">3</span>
+                    <span class="text-[11px] text-gray-500">Short chats or journal notes</span>
+                </div>
+                <div class="bg-gray-900/70 border border-sky-500/40 rounded-2xl p-4 flex flex-col gap-1">
+                    <span class="text-[11px] text-gray-400">Breathing sessions</span>
+                    <span class="text-2xl font-bold text-sky-300">5</span>
+                    <span class="text-[11px] text-gray-500">Using 4‑4‑6 guided tool</span>
+                </div>
+                <div class="bg-gray-900/70 border border-emerald-500/40 rounded-2xl p-4 flex flex-col gap-1">
+                    <span class="text-[11px] text-gray-400">Mood streak</span>
+                    <span class="text-2xl font-bold text-emerald-300">7 days</span>
+                    <span class="text-[11px] text-gray-500">Consistent tracking</span>
+                </div>
+                <div class="bg-gray-900/70 border border-amber-500/40 rounded-2xl p-4 flex flex-col gap-1">
+                    <span class="text-[11px] text-gray-400">Vent messages shared</span>
+                    <span class="text-2xl font-bold text-amber-300">12</span>
+                    <span class="text-[11px] text-gray-500">Anonymous, judgment‑free</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-12 border-t border-gray-800 text-center text-gray-500 bg-[#0d1117]">
+        <p>&copy; 2025 Melo. All rights reserved.</p>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        // Lightweight "live" demo for hero chat card (no backend)
+        (function () {
+            const auriEl = document.getElementById('demo-auri-text');
+            const userEl = document.getElementById('demo-user-text');
+            if (!auriEl || !userEl) return;
+
+            const scenarios = [
+                {
+                    auri: "Hey! I'm Auri. Want to do a 30‑second check‑in together? 🌱",
+                    user: "Yeah, my brain feels a bit noisy today."
+                },
+                {
+                    auri: "Thanks for sharing that. On a scale of 1–5, how heavy does today feel?",
+                    user: "Maybe a 3. Not awful, just... cluttered."
+                },
+                {
+                    auri: "Got it. Let’s park those thoughts in your journal and do one grounding breath together. Ready? 💜",
+                    user: "Okay, let's try."
+                }
+            ];
+
+            let index = 0;
+
+            function cycleDemo() {
+                const scenario = scenarios[index];
+                auriEl.textContent = scenario.auri;
+                userEl.textContent = scenario.user;
+                index = (index + 1) % scenarios.length;
+            }
+
+            setInterval(cycleDemo, 5000);
+        })();
+    </script>
+</body>
+</html>

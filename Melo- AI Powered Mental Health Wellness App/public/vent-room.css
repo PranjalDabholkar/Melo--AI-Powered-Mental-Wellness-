@@ -1,0 +1,215 @@
+.vr-root {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.vr-card {
+  width: 100%;
+  max-width: 420px;
+  background: #0f0f11;
+  border-radius: 18px;
+  border: 1px solid #27272f;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  color: #f5f5f7;
+}
+
+.vr-header {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #1f1f25;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.vr-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.vr-subtitle {
+  font-size: 0.75rem;
+  color: #a1a1b5;
+}
+
+.vr-new-btn {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.7rem;
+  border-radius: 999px;
+  border: 1px solid #3a3a46;
+  background: transparent;
+  color: #f9f9fb;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.vr-new-btn:hover {
+  background: #18181f;
+  border-color: #ff3366;
+}
+
+.vr-feed {
+  padding: 0.75rem 1rem;
+  min-height: 240px;
+  max-height: 320px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.vr-feed::-webkit-scrollbar {
+  width: 6px;
+}
+.vr-feed::-webkit-scrollbar-thumb {
+  background: #2e2e38;
+  border-radius: 999px;
+}
+
+.vr-message {
+  max-width: 80%;
+  padding: 0.55rem 0.7rem;
+  border-radius: 14px;
+  font-size: 0.8rem;
+  display: inline-block;
+  background: #17171d;
+  border: 1px solid #272732;
+  animation: vr-fade-in 180ms ease-out;
+}
+.vr-message--you {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #ff3366, #ff5f99);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+.vr-message--friend {
+  align-self: flex-start;
+}
+
+.vr-message-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.7rem;
+  color: #a1a1b5;
+}
+
+.vr-avatar {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  background: #1e1e26;
+}
+.vr-avatar--you {
+  background: rgba(255, 255, 255, 0.15);
+}
+.vr-avatar--friend {
+  background: rgba(255, 51, 102, 0.2);
+}
+
+.vr-sender {
+  font-weight: 600;
+}
+.vr-time {
+  margin-left: auto;
+  opacity: 0.7;
+}
+
+.vr-text {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.vr-footer {
+  border-top: 1px solid #1f1f25;
+  padding: 0.6rem 0.85rem 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.vr-counter {
+  font-size: 0.7rem;
+  color: #9a9ab0;
+}
+.vr-counter--warn {
+  color: #ff9fbf;
+  text-shadow: 0 0 6px rgba(255, 51, 102, 0.5);
+}
+
+.vr-input-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+.vr-input {
+  flex: 1;
+  min-height: 40px;
+  max-height: 100px;
+  resize: none;
+  border-radius: 12px;
+  border: 1px solid #262633;
+  background: #101017;
+  color: #f3f3f9;
+  padding: 0.4rem 0.55rem;
+  font-size: 0.8rem;
+  outline: none;
+  box-sizing: border-box;
+}
+.vr-input::placeholder {
+  color: #616179;
+}
+.vr-input:focus {
+  border-color: #ff3366;
+  box-shadow: 0 0 0 1px rgba(255, 51, 102, 0.35);
+}
+
+.vr-send-btn {
+  white-space: nowrap;
+  border-radius: 999px;
+  border: none;
+  padding: 0.5rem 0.95rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff3366, #ff5f99);
+  color: #fff;
+  box-shadow: 0 0 18px rgba(255, 51, 102, 0.35);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+}
+.vr-send-btn:hover {
+  filter: brightness(1.05);
+  box-shadow: 0 0 22px rgba(255, 51, 102, 0.55);
+}
+.vr-send-btn:active {
+  transform: translateY(1px) scale(0.98);
+}
+
+@keyframes vr-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .vr-card {
+    border-radius: 0;
+    max-width: 100%;
+  }
+}
+
