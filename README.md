@@ -4,7 +4,7 @@
 
 **Melo** is a therapist-informed mental wellness web app built for Gen Z: AI chat, journaling, mood insights, grounding tools, and an anonymous **Vent Room** for peer support. It runs as a **Progressive Web App (PWA)** and can sync data through **MongoDB** when deployed.
 
-**Repository:** [github.com/Adien-pearce/MElo](https://github.com/Adien-pearce/MElo) · **Author on GitHub:** [@Adien-pearce](https://github.com/Adien-pearce)
+**Repository:** (https://github.com/PranjalDabholkar/Melo--AI-Powered-Mental-Wellness-) · **Author on GitHub:** [@PranjalDabholkar](https://github.com/PranjalDabholkar)
 
 ---
 
